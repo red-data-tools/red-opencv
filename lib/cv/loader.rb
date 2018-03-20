@@ -5,5 +5,10 @@ module CV
         super("CV", CV)
       end
     end
+
+    private
+    def post_load(repository, namespace)
+      require "cv/image"
+    end
   end
 end
