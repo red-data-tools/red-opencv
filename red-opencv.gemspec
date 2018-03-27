@@ -5,7 +5,7 @@ clean_white_space = lambda do |entry|
 end
 
 $LOAD_PATH.unshift(File.join(__dir__, "lib"))
-require "opencv/version"
+require "cv/version"
 
 Gem::Specification.new do |spec|
   spec.name = "red-opencv"
