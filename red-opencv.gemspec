@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
   description = clean_white_space.call(entries[entries.index("Description") + 1])
   spec.summary, spec.description, = description.split(/\n\n+/, 3)
   spec.license = "BSD-3-Clause"
-  spec.files = ["README.md", "License", "Rakefile", "Gemfile"]
+  spec.files = ["README.md", "LICENSE", "Rakefile", "Gemfile"]
   spec.files += ["#{spec.name}.gemspec"]
   spec.files += [".yardopts"]
   spec.files += Dir.glob("lib/**/*.rb")
