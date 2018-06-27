@@ -6,6 +6,7 @@ RUN \
   apt update && \
   apt install -y \
     apt-transport-https \
+    build-essential \
     ca-certificates \
     ruby-dev && \
   echo "deb https://packages.red-data-tools.org/ubuntu/ bionic universe" > \
