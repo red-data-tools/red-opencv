@@ -4,12 +4,18 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN \
   apt update && \
-  apt install -y apt-transport-https ca-certificates && \
+  apt install -y \
+    apt-transport-https \
+    ca-certificates \
+    ruby-dev && \
   echo "deb https://packages.red-data-tools.org/ubuntu/ bionic universe" > \
     /etc/apt/sources.list.d/red-data-tools.list && \
   apt update --allow-insecure-repositories && \
   apt install -y --allow-unauthenticated red-data-tools-keyring && \
-  apt update
+  apt update && \
+  gem install \
+    bundler \
+    rake
 
 RUN mkdir /app
 WORKDIR /app
