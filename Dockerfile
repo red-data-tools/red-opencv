@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN \
   apt update && \
-  apt install -y apt-transport-https && \
+  apt install -y apt-transport-https ca-certificates && \
   echo "deb https://packages.red-data-tools.org/ubuntu/ bionic universe" > \
     /etc/apt/sources.list.d/red-data-tools.list && \
   apt update --allow-insecure-repositories && \
