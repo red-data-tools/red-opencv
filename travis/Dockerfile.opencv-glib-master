@@ -10,6 +10,7 @@ RUN \
     build-essential \
     ca-certificates \
     git \
+    libgirepository1.0-dev \
     libopencv-dev \
     meson \
     ninja-build \
@@ -19,13 +20,6 @@ RUN \
   gem install \
     bundler \
     rake
-
-RUN \
-  apt update && \
-  apt install -y \
-    libglib2.0-dev \
-    libgirepository1.0-dev && \
-  apt clean -y
 
 RUN \
   git clone --depth 1 https://github.com/red-data-tools/opencv-glib.git && \
