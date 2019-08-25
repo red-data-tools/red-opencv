@@ -1,0 +1,42 @@
+FROM ubuntu:18.04
+
+RUN \
+  echo "debconf debconf/frontend select Noninteractive" | \
+    debconf-set-selections
+
+RUN \
+  apt update && \
+  apt install -y \
+    build-essential \
+    ca-certificates \
+    git \
+    libopencv-dev \
+    meson \
+    ninja-build \
+    ruby-dev \
+    wget && \
+  apt clean -y && \
+  gem install \
+    bundler \
+    rake
+
+RUN \
+  apt update && \
+  apt install -y \
+    libglib2.0-dev \
+    libgirepository1.0-dev && \
+  apt clean -y
+
+RUN \
+  git clone --depth 1 https://github.com/red-data-tools/opencv-glib.git && \
+  meson --prefix=/usr opencv-glib.build opencv-glib && \
+  ninja -C opencv-glib.build && \
+  ninja -C opencv-glib.build install && \
+  rm -rf opencv-glib*
+
+RUN mkdir /app
+WORKDIR /app
+COPY . /app
+RUN \
+  bundle install && \
+  bundle install

@@ -2,13 +2,25 @@ notifications:
   webhooks:
     - https://webhook.commit-email.info/
 
-sudo: required
-
 services:
   - docker
 
+matrix:
+  include:
+    - name: Ubuntu 18.04
+      env: TYPE=ubuntu-18.04
+    - name: opencv-glib master
+      env: TYPE=opencv-glib-master
+
 install:
-  - docker build -t red-data-tools/red-opencv .
+  - docker build
+      -t red-data-tools/red-opencv-${TYPE}
+      -f travis/Dockerfile.${TYPE}
+      .
 
 script:
-  - docker run red-data-tools/red-opencv /bin/sh -c "bundle exec rake"
+  - docker run
+      --interactive
+      --tty
+      red-data-tools/red-opencv-${TYPE}
+      bundle exec rake
