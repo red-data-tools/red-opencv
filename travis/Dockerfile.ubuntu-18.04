@@ -8,6 +8,7 @@ RUN \
     apt-transport-https \
     build-essential \
     ca-certificates \
+    git \
     ruby-dev \
     wget && \
   wget -O /usr/share/keyrings/red-data-tools-keyring.gpg \
