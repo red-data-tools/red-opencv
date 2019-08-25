@@ -8,6 +8,7 @@ module CV
 
     private
     def post_load(repository, namespace)
+      require "cv/drawing-options" if CV.const_defined?(:DrawingOptions)
       require "cv/image"
     end
   end

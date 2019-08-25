@@ -29,7 +29,7 @@ Gem::Specification.new do |spec|
   spec.test_files += Dir.glob("test/**/*")
   spec.extensions = ["dependency-check/Rakefile"]
 
-  spec.add_runtime_dependency("gobject-introspection")
+  spec.add_runtime_dependency("gobject-introspection", ">= 3.3.8")
 
   spec.add_development_dependency("bundler")
   spec.add_development_dependency("rake")
