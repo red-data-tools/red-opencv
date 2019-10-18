@@ -1,8 +1,4 @@
-# README
-
-## Name
-
-Red OpenCV
+# Red OpenCV
 
 ## Description
 
